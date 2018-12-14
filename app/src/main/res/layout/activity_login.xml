@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="#FFF">
+
+    <TextView
+        android:layout_width="274dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="CNU Lost \u0026 Found"
+        android:textColor="#000"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/cnu_logo" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_back"
+        android:hint=" ID"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="297dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_back"
+        android:hint=" PASSWORD"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"/>
+
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="297dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/listitem"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="Log in"
+        android:textColor="#FFF"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/textViewSignin"
+        android:layout_width="297dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="Sign up"
+        android:textColor="#000"
+        android:textSize="18dp" />
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/textviewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
