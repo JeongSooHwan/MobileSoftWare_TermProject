@@ -31,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     EditText editTextPassword;
     EditText editTextPassword_confirm;
     EditText editTextName;
-    ImageButton buttonSignup;
+    Button buttonSignup;
     TextView textviewMessage;
     TextView promise_text;
     CheckBox checkBox_forEnter;
@@ -61,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         editTextPassword_confirm = findViewById(R.id.editTextPassword_confirm);
 
         textviewMessage = findViewById(R.id.textviewMessage);
-        buttonSignup = (ImageButton) findViewById(R.id.buttonSignup);
+        buttonSignup = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
         checkBox_forEnter = findViewById(R.id.checkBox_forEnter);
         editTextName = findViewById(R.id.editTextName);
