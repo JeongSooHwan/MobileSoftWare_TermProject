@@ -10,10 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.io.BufferedInputStream;
@@ -26,11 +34,12 @@ import java.net.URL;
 import static com.google.common.io.ByteStreams.copy;
 
 public class Detail_lost_Activity extends AppCompatActivity implements View.OnClickListener {
-    String Detail_title, Detail_name, Detail_tel, Detail_location, Detail_explain, url;
+    String Detail_title, Detail_name, Detail_tel, Detail_location, Detail_explain, url,userid;
     TextView title, name, tel, location, explain;
     ImageView imageView;
-    Button message;
-
+    Button delete;
+    ImageButton message;
+    FirebaseAuth firebaseAuth;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_detail);
@@ -38,7 +47,8 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
             // 21 버전 이상일 때
             getWindow().setStatusBarColor(Color.parseColor("#321c54"));
         }
-        message = (Button) findViewById(R.id.message);
+        firebaseAuth = FirebaseAuth.getInstance();
+        message = (ImageButton) findViewById(R.id.message);
         message.setOnClickListener(this);
         Intent intent = getIntent();
         Detail_title = intent.getExtras().getString("title");
@@ -47,9 +57,12 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
         Detail_location = intent.getExtras().getString("location");
         Detail_explain = intent.getExtras().getString("explain");
         url = intent.getExtras().getString("url");
+        userid = intent.getExtras().getString("userid");
+
+        delete = (Button)findViewById(R.id.delete);
+        delete.setOnClickListener(this);
 
 
-        Toast.makeText(getBaseContext(), Detail_tel + Detail_location + Detail_explain, Toast.LENGTH_SHORT).show();
         imageView = (ImageView) findViewById(R.id.imageView1);
         title = (TextView) findViewById(R.id.title);
         name = (TextView) findViewById(R.id.name);
@@ -63,6 +76,10 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
         explain.setText(Detail_explain.toString());
         UrlImageViewHelper.setUrlDrawable(imageView, url);
 
+        if(firebaseAuth.getCurrentUser().getEmail().equals(userid)){
+            delete.setVisibility(View.VISIBLE);
+        }
+
 
     }
 
@@ -74,5 +91,23 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
             intent.putExtra("tel", tel.getText().toString());
             startActivity(intent);
         }
+        if(view == delete) {
+            if (firebaseAuth.getCurrentUser().getEmail().equals(userid)) {
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                Query applesQuery = ref.child("Found_list").orderByChild("title").equalTo(Detail_title);
+                applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                            appleSnapshot.getRef().removeValue();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) { }
+                });
+            }
+            finish();
+        }
     }
+
 }

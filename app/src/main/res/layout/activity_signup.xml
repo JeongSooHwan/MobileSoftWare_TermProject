@@ -17,21 +17,22 @@
         android:textSize="23dp" />
 
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/login_radious"
-        android:paddingTop="20dp"
+        android:orientation="vertical"
         android:paddingBottom="20dp"
-        android:orientation="vertical">
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -53,14 +54,15 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_back"
                 android:inputType="text"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -82,16 +84,17 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_back"
                 android:inputType="textEmailAddress"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -113,19 +116,16 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_back"
                 android:inputType="textPassword"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp" />
         </LinearLayout>
-
-
-
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -135,8 +135,8 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="비밀번호 확인 : "
-                android:textSize="15dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="15dp" />
 
             <EditText
                 android:id="@+id/editTextPassword_confirm"
@@ -147,7 +147,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_back"
                 android:inputType="textPassword"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp" />
         </LinearLayout>
 
         <TextView
@@ -160,9 +160,9 @@
             android:layout_weight="1"
             android:background="@drawable/round_back"
             android:gravity="center_vertical"
-            android:text="약관내용"
-            android:scrollbars="vertical"
             android:paddingLeft="10dp"
+            android:scrollbars="vertical"
+            android:text="약관내용"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
         <CheckBox

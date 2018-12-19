@@ -31,8 +31,7 @@ import java.util.List;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class LostActivity extends AppCompatActivity implements View.OnClickListener {
-    Button  campus, list, move;
-    ImageButton LostRegister;
+    Button  campus, list, move, LostRegister;
     public RecyclerView recyclerView;
     public List<ImageDTO> imageDTOS = new ArrayList<>();
     public FirebaseDatabase database;
@@ -45,7 +44,7 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost);
         campus = (Button) findViewById(R.id.campus);
-        LostRegister = (ImageButton) findViewById(R.id.LostRegister);
+        LostRegister = (Button) findViewById(R.id.LostRegister);
         LostRegister.setOnClickListener(this);
         campus.setOnClickListener(this);
         database = FirebaseDatabase.getInstance();
@@ -103,12 +102,13 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
             ((CustomViewHolder) holder).textView.setText(imageDTOS.get(position).title);
-            ((CustomViewHolder) holder).textView2.setText("작성자 : " + imageDTOS.get(position).name);
+            ((CustomViewHolder) holder).textView2.setText(imageDTOS.get(position).name);
             ((CustomViewHolder) holder).textView3.setText(date);
             ((CustomViewHolder) holder).textView4.setText(imageDTOS.get(position).tel);
             ((CustomViewHolder) holder).textView5.setText(imageDTOS.get(position).location);
             ((CustomViewHolder) holder).textView6.setText(imageDTOS.get(position).detail);
             ((CustomViewHolder) holder).textView7.setText(imageDTOS.get(position).imageUrl);
+            ((CustomViewHolder) holder).textView8.setText(imageDTOS.get(position).userId);
             Glide.with(holder.itemView.getContext()).load(imageDTOS.get(position).imageUrl).into((((CustomViewHolder) holder).imageView));
         }
 
@@ -126,7 +126,7 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
             TextView textView5;
             TextView textView6;
             TextView textView7;
-
+            TextView textView8;
             public CustomViewHolder(View view) {
                 super(view);
                 imageView = (ImageView) view.findViewById(R.id.imgview);
@@ -137,6 +137,7 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
                 textView5 = (TextView) view.findViewById(R.id.location);
                 textView6 = (TextView) view.findViewById(R.id.explain);
                 textView7 = (TextView) view.findViewById(R.id.url);
+                textView8 = (TextView) view.findViewById(R.id.userId);
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -147,6 +148,7 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
                         intent.putExtra("location", textView5.getText().toString());
                         intent.putExtra("explain", textView6.getText().toString());
                         intent.putExtra("url", textView7.getText().toString());
+                        intent.putExtra("userid", textView8.getText().toString());
                         startActivity(intent);
                     }
                 });

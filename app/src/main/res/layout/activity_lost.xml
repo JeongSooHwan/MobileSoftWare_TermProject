@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="#B2C8DE"
+            android:background="@color/colorAccent"
             android:padding="0dp"
             android:scaleType="fitXY"
             android:text="전체 게시물"
@@ -38,81 +39,105 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/listLayout"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView_1"
-            android:layout_width="match_parent"
-            android:layout_height="438dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="38dp"
-            tools:layout_editor_absoluteY="64dp" />
-
-
-        <ImageButton
-            android:id="@+id/LostRegister"
-            android:layout_width="188dp"
-            android:layout_height="89dp"
-            android:layout_gravity="center"
-            android:background="@color/white"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/reg" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/campusLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <ImageView
-            android:id="@+id/map"
-            android:layout_width="match_parent"
-            android:layout_height="264dp"
-            android:src="@drawable/map" />
-
-        <ImageView
-            android:id="@+id/detail"
-            android:layout_width="match_parent"
-            android:layout_height="164dp"
-            android:src="@drawable/detail" />
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/listLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_1"
+                android:layout_width="match_parent"
+                android:layout_height="438dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="64dp" />
 
-                android:text="분실 장소 : " />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
 
             <Button
-                android:id="@+id/move"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이동" />
+                android:id="@+id/LostRegister"
+                android:layout_width="297dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/listitem"
+                android:text="분실물 등록"
+                android:textColor="#fff"
+                android:textSize="18dp" />
         </LinearLayout>
-    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/campusLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/map" />
+
+            <ImageView
+                android:id="@+id/detail"
+                android:layout_width="match_parent"
+                android:layout_height="164dp"
+                android:src="@drawable/detail" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="분실 장소 :"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_back">
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/move"
+                    android:layout_width="297dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/listitem"
+                    android:text="이동"
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

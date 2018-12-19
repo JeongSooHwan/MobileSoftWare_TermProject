@@ -29,13 +29,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="제목 : "
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="23dp"/>
+                android:textSize="23dp"
+                android:textColor="#000"/>
         </LinearLayout>
 
         <LinearLayout
@@ -48,13 +50,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이름 : "
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
         </LinearLayout>
 
         <LinearLayout
@@ -67,13 +71,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="연락처 : "
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
         </LinearLayout>
 
         <LinearLayout
@@ -86,13 +92,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="분실 장소 : "
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
 
         </LinearLayout>
 
@@ -106,25 +114,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상세 설명 : "
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/explain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="23dp" />
+                android:textSize="23dp"
+                android:textColor="#000"/>
         </LinearLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:text="메세지 보내기" />
+            android:background="#fff"
+            android:scaleType="fitXY"
+            android:src="@drawable/msg" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/delete"
+                android:text="삭제"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textFontWeight="bold"/>
 
 
-
+        </LinearLayout>
 
     </LinearLayout>
 
