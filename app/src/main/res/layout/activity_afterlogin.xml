@@ -33,7 +33,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:background="@drawable/listitem"
-        android:text="분실물을 찾아주세요"
+        android:text="분실물 게시판"
         android:textColor="#fff"
         android:textSize="18dp" />
 
@@ -44,7 +44,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:background="@drawable/listitem"
-        android:text="분실물을 찾아가세요"
+        android:text="습득물 게시판"
         android:textColor="#FFF"
         android:textSize="18dp" />
 

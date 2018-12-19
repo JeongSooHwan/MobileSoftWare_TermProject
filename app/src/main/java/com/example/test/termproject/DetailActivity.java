@@ -1,5 +1,6 @@
 package com.example.test.termproject;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +35,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 import static com.google.common.io.ByteStreams.copy;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
@@ -43,6 +46,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     ImageButton message;
     FirebaseAuth firebaseAuth;
     Button delete;
+    PhotoViewAttacher mAttacher;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
@@ -67,7 +71,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         url = intent.getExtras().getString("url");
         userid = intent.getExtras().getString("userid");
         imageView = (ImageView)findViewById(R.id.imageView1);
-
+        imageView.setOnClickListener(this);
         title = (EditText) findViewById(R.id.title);
         name = (EditText) findViewById(R.id.name);
         tel = (EditText) findViewById(R.id.phone);
@@ -119,5 +123,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             }
             finish();
         }
+        if(view ==imageView){
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.dialog);
+            final ImageView iv = (ImageView) dialog.findViewById(R.id.image);
+            UrlImageViewHelper.setUrlDrawable(iv, url);
+            mAttacher = new PhotoViewAttacher(iv);
+            dialog.show();
+        }
+
     }
 }

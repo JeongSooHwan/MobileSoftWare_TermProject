@@ -1,5 +1,6 @@
 package com.example.test.termproject;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,6 +32,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 import static com.google.common.io.ByteStreams.copy;
 
 public class Detail_lost_Activity extends AppCompatActivity implements View.OnClickListener {
@@ -40,6 +43,7 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
     Button delete;
     ImageButton message;
     FirebaseAuth firebaseAuth;
+    PhotoViewAttacher mAttacher;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_detail);
@@ -64,6 +68,7 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
 
 
         imageView = (ImageView) findViewById(R.id.imageView1);
+        imageView.setOnClickListener(this);
         title = (TextView) findViewById(R.id.title);
         name = (TextView) findViewById(R.id.name);
         tel = (TextView) findViewById(R.id.phone);
@@ -108,6 +113,15 @@ public class Detail_lost_Activity extends AppCompatActivity implements View.OnCl
             }
             finish();
         }
+        if(view ==imageView){
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.dialog);
+            final ImageView iv = (ImageView) dialog.findViewById(R.id.image);
+            UrlImageViewHelper.setUrlDrawable(iv, url);
+            mAttacher = new PhotoViewAttacher(iv);
+            dialog.show();
+        }
+
     }
 
 }
